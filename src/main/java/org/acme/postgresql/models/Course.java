@@ -10,7 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Course extends PanacheEntity{
+public class Course extends PanacheEntity {
     public int course_id;
     public String course_name;
     public String course_description;

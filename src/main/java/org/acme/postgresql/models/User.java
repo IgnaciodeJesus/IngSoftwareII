@@ -1,8 +1,10 @@
 package org.acme.postgresql.models;
 
+import javax.persistence.MappedSuperclass;
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 
-public abstract class User extends PanacheEntity{
+@MappedSuperclass
+public class User extends PanacheEntity{
 
     public int id;
     public String username;

@@ -9,30 +9,29 @@ import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 
 @Entity
 public class Class extends PanacheEntity{
-    public int id;
-    public String name;
-    public String description;
+    public int class_id;
+    public String class_name;
+    public String class_description;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
     @JsonbTransient
     private Course course;
 
-
-    public String getName() {
-        return this.name;
+    public String getClass_Name() {
+        return this.class_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClassName(String name) {
+        this.class_name = name;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getClass_Description() {
+        return this.class_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setClass_Description(String description) {
+        this.class_description = description;
     }
 
 }
