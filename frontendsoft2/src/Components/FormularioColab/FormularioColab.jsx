@@ -29,12 +29,12 @@ const FormularioColab = () => {
   async function handleSubmit(event) {
     event.preventDefault();
     console.log(Formularioin);
-    try{
-      await axios.post("http://localhost:8080/formulariocolaborador", Formularioin).then(respuesta =>{
+    try {
+      await axios.post("http://localhost:8080/formulariocolaborador", Formularioin).then(respuesta => {
         console.log(respuesta)
         navigate("/")
-      } )
-    }catch(error){
+      })
+    } catch (error) {
       console.log(error)
     }
   }
@@ -80,21 +80,13 @@ const FormularioColab = () => {
                   label="Requisitos previos"
                   value={Formularioin.requisitos}
                 />
-
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlTextarea1"
-                >
-                  <Form.Label
-                    onChange={handleChange}
-                    value={Formularioin.contenido}
-                    type="text"
-                    name="contenido"
-                  >
-                    Contenido del curso
-                  </Form.Label>
-                  <Form.Control as="textarea" rows={3} />
-                </Form.Group>
+                <FormInput
+                  onChange={handleChange}
+                  name="contenido"
+                  type="text"
+                  label="Contenido"
+                  value={Formularioin.contenido}
+                />
 
                 <div>
                   <button

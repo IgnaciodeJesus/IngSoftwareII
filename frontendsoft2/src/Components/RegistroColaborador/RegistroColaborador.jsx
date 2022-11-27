@@ -95,7 +95,6 @@ async function handleSubmit(event) {
                   label="Contraseña"
                   value={regist.password}
                 />
-                <FormInput type="password" label="Repetir Contraseña" />
 
                 <div className="form-floating mb-3"></div>
 

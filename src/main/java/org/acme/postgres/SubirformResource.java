@@ -12,19 +12,16 @@ import io.quarkus.hibernate.reactive.panache.Panache;
 import io.quarkus.panache.common.Sort;
 import io.smallrye.mutiny.*;
 
+//path es la dirección del localhost80:80/nombredeladireccion
 @Path("/formulariocolaborador")
 @ApplicationScoped
 public class SubirformResource {
     @GET
     public Uni<List<Subirform>> get() {
-        return Subirform.listAll(Sort.by("nombre","duracion","tipo","requisitos","contenido"));
+        return Subirform.listAll(Sort.by("id","nombre","duracion","tipo","requisitos","contenido"));
     }
 
-
-
-
-
-
+// subirform en minuscula es el nombre de la tabla respectiva en la db
     @POST
 public Uni<Response> create(Subirform subirform) {
     return Panache.<Subirform>withTransaction(subirform::persist)
