@@ -1,4 +1,4 @@
-package org.acme.postgresql.models;
+package org.acme.postgresql.course;
 
 import javax.persistence.Entity;
 
@@ -14,6 +14,15 @@ public class Course extends PanacheEntity {
     public int course_id;
     public String course_name;
     public String course_description;
+    public String created_date;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    @JsonbTransient
+    private Collaborator collaborator;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course", fetch = FetchType.EAGER)
+    private List<Class> classes;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course", fetch = FetchType.EAGER)
     private List<Class> classes;
