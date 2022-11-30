@@ -4,7 +4,7 @@ import image from "../../Assets/Images/imagenLogin.jpg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
-
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,11 +25,19 @@ const Login = () => {
   }
 
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    // submitToApi(formData)
-    console.log(Login)
-}
+  async function handleSubmit(event) {
+    event.preventDefault();
+    console.log(Login);
+    try{
+      await axios.post("http://localhost:8080/formulariocolaborador", Login).then(respuesta =>{
+        console.log(respuesta)
+        navigate("/")
+      } )
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   return (
     <div className="row">
       <div className="col-sm-6 p-5">
@@ -54,6 +62,17 @@ const Login = () => {
                   label="Contraseña"
                   value={Login.password}
                 />
+                <div className="form-floating mb-3">
+                  <select
+                    name="tipo"
+                    className="form-select"
+                    onChange={handleChange}
+                  >
+                    <option defaultValue={0}>Seleccione Rol</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="colaborador">Colaborador</option>
+                  </select>
+                </div>
                 <div>
                 <button
                     type="submit"
