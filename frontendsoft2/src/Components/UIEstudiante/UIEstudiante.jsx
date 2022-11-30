@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import Form from "react-bootstrap/Form";
 const UIEstudiante = () => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -120,10 +121,81 @@ const UIEstudiante = () => {
                       </Button>
                       <Collapse in={open2}>
                         <div id="Collapse2">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. Nihil anim
-                          keffiyeh helvetica, craft beer labore wes anderson
-                          cred nesciunt sapiente ea proident.
+                          <Table class="col-xs-12 col-md-8">
+                            <thead>
+                              <tr>
+                                <th>Nombre</th>
+                                <th>Duracion</th>
+                                <th>Tipo</th>
+                                <th>Requisitos</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td style={{ textAlign: "center" }}>
+                                  <div className="row"></div>
+                                  <div className="row"></div>
+                                  <img
+                                    src={image}
+                                    alt=""
+                                    width="100"
+                                    height="100"
+                                  />
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                  24 horas
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                  Sincrono
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                  Introducción a la programación
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                  <Form>
+                                    <Form.Check
+                                      type="switch"
+                                      id="custom-switch"
+                                      label="Inscribirse"
+                                    />
+                                  </Form>
+                                </td>
+                                <td>
+                                  <button
+                                    type="submit"
+                                    className="btn color-primary-bg-btn me-3"
+                                  >
+                                    Aceptar
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style={{ textAlign: "center" }}>
+                                  Python
+                                  <img
+                                    src={image2}
+                                    alt=""
+                                    width="100"
+                                    height="100"
+                                  />
+                                </td>
+                                <td style={{ textAlign: "center" }}>Basico</td>
+                              </tr>
+                              <tr>
+                                <td style={{ textAlign: "center" }}>
+                                  Visual Basics
+                                  <img
+                                    src={image3}
+                                    alt=""
+                                    width="100"
+                                    height="100"
+                                  />
+                                </td>
+                                <td style={{ textAlign: "center" }}>Basico</td>
+                              </tr>
+                            </tbody>
+                          </Table>
                         </div>
                       </Collapse>
                     </div>
