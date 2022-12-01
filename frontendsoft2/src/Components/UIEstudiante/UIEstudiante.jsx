@@ -9,10 +9,27 @@ import Button from "react-bootstrap/Button";
 import Collapse from "react-bootstrap/Collapse";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Form from "react-bootstrap/Form";
+import axios from "axios";
 const UIEstudiante = () => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [switchState, setSwitchState] = useState(false);
+  const [cursos, setcursos] = useState([]);
+  const [cambio, setCambio] = useState(false);
 
+  function handleChange() {
+    setCambio(!cambio);
+  }
+  React.useEffect(() => {
+    async function getCursos(){
+        const res = await fetch("")
+        const data = await res.json()
+        console.log(data)
+        setcursos(data)
+
+    }
+    getCursos()
+}, [])
   return (
     <div className="row">
       <div className="col-sm-6 p-5 ">
@@ -133,16 +150,7 @@ const UIEstudiante = () => {
                             </thead>
                             <tbody>
                               <tr>
-                                <td style={{ textAlign: "center" }}>
-                                  <div className="row"></div>
-                                  <div className="row"></div>
-                                  <img
-                                    src={image}
-                                    alt=""
-                                    width="100"
-                                    height="100"
-                                  />
-                                </td>
+                                <td style={{ textAlign: "center" }}>Java</td>
                                 <td style={{ textAlign: "center" }}>
                                   24 horas
                                 </td>
@@ -158,6 +166,8 @@ const UIEstudiante = () => {
                                       type="switch"
                                       id="custom-switch"
                                       label="Inscribirse"
+                                      defaultChecked={switchState}
+                                      onChange={handleChange}
                                     />
                                   </Form>
                                 </td>
@@ -169,30 +179,6 @@ const UIEstudiante = () => {
                                     Aceptar
                                   </button>
                                 </td>
-                              </tr>
-                              <tr>
-                                <td style={{ textAlign: "center" }}>
-                                  Python
-                                  <img
-                                    src={image2}
-                                    alt=""
-                                    width="100"
-                                    height="100"
-                                  />
-                                </td>
-                                <td style={{ textAlign: "center" }}>Basico</td>
-                              </tr>
-                              <tr>
-                                <td style={{ textAlign: "center" }}>
-                                  Visual Basics
-                                  <img
-                                    src={image3}
-                                    alt=""
-                                    width="100"
-                                    height="100"
-                                  />
-                                </td>
-                                <td style={{ textAlign: "center" }}>Basico</td>
                               </tr>
                             </tbody>
                           </Table>
