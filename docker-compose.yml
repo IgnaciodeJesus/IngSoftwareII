@@ -11,11 +11,10 @@ services:
   #PostgreSQL
   postgres:
     image: postgres:latest
-    restart: always
     ports: 
-      - "5432:5432"
+      - 5432:5432
     volumes:
-      - psql_data_container:/data/db
+      - psql_data_container:/data/postgres
     environment:
       - DATABASE_HOST=127.0.0.1
       - POSTGRES_USER=root
